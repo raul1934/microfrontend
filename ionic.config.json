@@ -1,0 +1,7 @@
+{
+  "name": "yeti",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

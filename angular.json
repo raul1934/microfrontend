@@ -12,7 +12,7 @@
 			},
 			"root": "projects/shell",
 			"sourceRoot": "projects/shell/src",
-			"prefix": "app",
+			"prefix": "shell",
 			"architect": {
 				"build": {
 					"builder": "ngx-build-plus:browser",
@@ -30,6 +30,7 @@
 							"projects/shell/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/shell/src/styles.scss"
 						],
 						"scripts": [],
@@ -68,11 +69,11 @@
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "shell:build:production",
+							"buildTarget": "shell:build:production",
 							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
 						},
 						"development": {
-							"browserTarget": "shell:build:development"
+							"buildTarget": "shell:build:development"
 						}
 					},
 					"defaultConfiguration": "development",
@@ -103,6 +104,7 @@
 							"projects/shell/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/shell/src/styles.scss"
 						],
 						"scripts": []
@@ -119,10 +121,10 @@
 			},
 			"root": "projects/mfe1",
 			"sourceRoot": "projects/mfe1/src",
-			"prefix": "app",
+			"prefix": "mfe1",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/mfe1",
 						"index": "projects/mfe1/src/index.html",
@@ -137,9 +139,12 @@
 							"projects/mfe1/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/mfe1/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/mfe1/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -155,7 +160,8 @@
 									"maximumError": "4kb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -169,21 +175,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
-            "production": {
-              "buildTarget": "mfe1:build:production"
+						"production": {
+							"buildTarget": "mfe1:build:production",
+							"extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
 						},
-            "development": {
-              "buildTarget": "mfe1:build:development"
+						"development": {
+							"buildTarget": "mfe1:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/mfe1/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "mfe1:build"
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"buildTarget": "mfe1:build",
+						"extraWebpackConfig": "projects/mfe1/webpack.config.js"
 					}
 				},
 				"test": {
@@ -200,6 +213,7 @@
 							"projects/mfe1/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/mfe1/src/styles.scss"
 						],
 						"scripts": []
@@ -216,10 +230,10 @@
 			},
 			"root": "projects/mfe2",
 			"sourceRoot": "projects/mfe2/src",
-			"prefix": "app",
+			"prefix": "mfe2",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/mfe2",
 						"index": "projects/mfe2/src/index.html",
@@ -234,9 +248,12 @@
 							"projects/mfe2/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/mfe2/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/mfe2/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -252,7 +269,8 @@
 									"maximumError": "4kb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mfe2/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -266,21 +284,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
-            "production": {
-              "buildTarget": "mfe2:build:production"
+						"production": {
+							"buildTarget": "mfe2:build:production",
+							"extraWebpackConfig": "projects/mfe2/webpack.prod.config.js"
 						},
-            "development": {
-              "buildTarget": "mfe2:build:development"
+						"development": {
+							"buildTarget": "mfe2:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/mfe2/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "mfe2:build"
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"buildTarget": "mfe2:build",
+						"extraWebpackConfig": "projects/mfe2/webpack.config.js"
 					}
 				},
 				"test": {
@@ -297,6 +322,7 @@
 							"projects/mfe2/src/assets"
 						],
 						"styles": [
+							"global.scss",
 							"projects/mfe2/src/styles.scss"
 						],
 						"scripts": []

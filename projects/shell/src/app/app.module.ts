@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IonicModule } from '@ionic/angular';
+import { HomeComponent } from './home/home.component';
+import { GlobalErrorHandlerService } from './global-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IonicModule.forRoot(),
+    HomeComponent
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
