@@ -26,6 +26,7 @@
     "@capacitor/android": "^5.7.8",
     "@capacitor/cli": "^5.7.8",
     "@capacitor/core": "^5.7.8",
+    "@capacitor/geolocation": "^5.0.8",
     "@ionic/angular": "^8.4.3",
     "@ionic/angular-toolkit": "^12.1.1",
     "@ionic/core": "^8.4.3",
