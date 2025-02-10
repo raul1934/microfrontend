@@ -6,8 +6,8 @@ const {
 module.exports = withModuleFederationPlugin({
   name: "shell",
   remotes: {
-    mfe1: "http://localhost:8101/remoteEntry.js",
-    mfe2: "http://localhost:8102/remoteEntry.js",
+    mfe1: "mfe1@http://localhost:8101/remoteEntry.js",
+    mfe2: "mfe2@http://localhost:8102/remoteEntry.js",
   },
   exposes: {
     "./Component": "./projects/shell/src/app/app.component.ts",

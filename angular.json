@@ -187,9 +187,10 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4201,
-						"publicHost": "http://localhost:4201",
-						"extraWebpackConfig": "projects/mfe1/webpack.config.js"
+						"port": 8101,
+						"publicHost": "http://localhost:8101",
+						"extraWebpackConfig": "projects/mfe1/webpack.config.js",
+						"proxyConfig": "projects/mfe1/proxy.conf.json"
 					}
 				},
 				"extract-i18n": {

@@ -15,7 +15,7 @@ import { GlobalErrorHandlerService } from './global-error-handler.service';
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
-    HomeComponent
+    HomeComponent,
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },

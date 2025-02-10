@@ -5,7 +5,16 @@ const config: CapacitorConfig = {
   appName: 'yeti',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    "hostname": "localhost",
+    "androidScheme": "http",
+    "allowNavigation": [
+      "http://localhost:8101/*",
+      "http://localhost:8102/*",
+      "http://localhost:4201/*",
+      "http://localhost:4202/*",
+      "http://10.0.2.2:8101/*",
+      "http://10.0.2.2:8202/*",
+    ]
   }
 };
 

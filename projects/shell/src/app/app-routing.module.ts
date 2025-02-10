@@ -10,18 +10,24 @@ const routes: Routes = [
     loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: 'https://192.168.0.11:8101/remoteEntry.js',
+        remoteEntry: 'http://10.0.2.2:8101/remoteEntry.js',
         exposedModule: './Module',
-      }).then((m) => m.AppModule),
+      }).then((m) => m.AppModule).catch(err => {
+        console.error('Error loading remote module', err);
+          throw err;
+      }),
   },
   {
     path: 'mfe2',
     loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: 'https://192.168.0.11:8102/remoteEntry.js',
+        remoteEntry: 'http://10.0.2.2:8101/remoteEntry.js',
         exposedModule: './Module',
-      }).then((m) => m.AppModule),
+      }).then((m) => m.AppModule).then((m) => m.AppModule).catch(err => {
+        console.error('Error loading remote module', err);
+        throw err;
+      }),
   },
   {
     path: '',

@@ -14,24 +14,25 @@ export class HomeComponent implements ViewDidEnter {
   count = 0;
 
   constructor() {
-    Geolocation.requestPermissions().then((response) => {
-      if (response) {
-        this.getLocation();
-        setInterval(() => {
-          this.getLocation();
-          this.count++;
-        }, 5000);
-      }
-    });
+    setInterval(async () => {
+      this.count++;
+      await this.getLocation();
+     }, 5000);
   }
-  ionViewDidEnter(): void {
 
-   
+  ionViewDidEnter(): void {
+    setInterval(async () => {
+      this.count++;
+      await this.getLocation();
+     }, 5000);
   }
 
   protected async getLocation() {
-    const coordinates = await Geolocation.getCurrentPosition();
-    this.location.lat = coordinates.coords.latitude;
-    this.location.lng = coordinates.coords.longitude;
+   return Geolocation.getCurrentPosition().then((coordinates) => {
+      this.location.lat = coordinates.coords.latitude;
+      this.location.lng = coordinates.coords.longitude
+    }).catch((error) => {
+      console.error('Error getting location', JSON.stringify(error));
+    });
   }
 }
